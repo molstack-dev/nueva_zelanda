@@ -1,0 +1,1500 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nueva Zelanda — Descubre el país</title>
+
+<style>
+:root{
+  color-scheme:light dark;
+  --navy:#061c35;
+  --blue:#0b3558;
+  --red:#d72b3f;
+  --white:#f7fbff;
+  --ink:#102236;
+  --muted:#5d6b78;
+  --paper:#f4f7f8;
+  --line:#d8e1e7;
+  --card:rgba(255,255,255,.9)
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+  background:var(--paper);
+  color:var(--ink)
+}
+
+.app{
+  min-height:100vh;
+  background:linear-gradient(180deg,#071d35 0 35%,#f4f7f8 35% 100%);
+}
+
+a{color:inherit}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:22px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:white;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  font-weight:900;
+  letter-spacing:.5px
+}
+
+.fern{font-size:30px;transform:rotate(-20deg)}
+
+.navlinks{
+  display:flex;
+  gap:18px;
+  font-size:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.navlinks a{
+  text-decoration:none;
+  opacity:.85
+}
+
+.navlinks a:hover{opacity:1;color:#fff}
+
+/* =========================
+   BOTÓN DE IDIOMA
+========================= */
+
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;
+  padding:5px;
+  font-size:13px;
+}
+
+.lang-switch button{
+  border:0;
+  background:transparent;
+  color:white;
+  padding:7px 14px;
+  border-radius:999px;
+  font-weight:800;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:12px;
+  letter-spacing:.5px;
+  transition:.2s;
+  opacity:.7;
+}
+
+.lang-switch button.active{
+  background:white;
+  color:#09213a;
+  opacity:1;
+}
+
+.lang-switch button:hover{
+  opacity:1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1180px;
+  margin:auto;
+  padding:55px 28px 110px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:45px;
+  align-items:center;
+  color:white;
+  position:relative;
+}
+
+.eyebrow{
+  color:#bfe4ff;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.hero h1{
+  font-size:clamp(48px,8vw,92px);
+  line-height:.9;
+  margin:14px 0 20px;
+  letter-spacing:-5px;
+}
+
+.hero h1 span{color:#ef4050}
+
+.hero p{
+  font-size:19px;
+  line-height:1.65;
+  color:#d7e6f2;
+  max-width:650px;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.btn{
+  border:1px solid rgba(255,255,255,.25);
+  padding:13px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:.2s;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:15px;
+  background:transparent;
+  color:white;
+}
+
+.btn.primary{background:#fff;color:#09213a}
+.btn.red{background:var(--red);color:white;border-color:var(--red)}
+.btn:hover{transform:translateY(-2px)}
+
+/* =========================
+   ILUSTRACIÓN HERO
+========================= */
+
+.hero-art{
+  height:390px;
+  border-radius:32px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#103f66,#061827);
+  box-shadow:0 25px 70px rgba(0,0,0,.3);
+  border:1px solid rgba(255,255,255,.15);
+}
+
+.hero-art:before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:50%;
+  top:35px;
+  right:-35px;
+}
+
+.hero-art:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:52%;
+  background:linear-gradient(145deg,transparent 10%,#062139 10% 35%,#0d4a4a 35% 55%,#163f37 55%);
+}
+
+.stars{
+  position:absolute;
+  right:45px;
+  top:50px;
+  color:#e43b4d;
+  font-size:30px;
+  letter-spacing:10px;
+  z-index:2;
+}
+
+.mountain{
+  position:absolute;
+  z-index:3;
+  bottom:70px;
+  left:40px;
+  font-size:150px;
+  filter:drop-shadow(0 8px 0 rgba(255,255,255,.08));
+}
+
+.badge{
+  position:absolute;
+  z-index:5;
+  bottom:25px;
+  right:25px;
+  background:white;
+  color:#09213a;
+  border-radius:16px;
+  padding:12px 16px;
+  font-weight:900;
+}
+
+.badge small{
+  display:block;
+  color:#657482;
+  font-weight:600;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+main{
+  max-width:1180px;
+  margin:-55px auto 0;
+  padding:0 28px 70px;
+  position:relative;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.stat{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(16,34,54,.07);
+}
+
+.stat b{
+  font-size:26px;
+  display:block;
+}
+
+.stat span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.section{padding-top:75px}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:end;
+  margin-bottom:25px;
+}
+
+.kicker{
+  color:var(--red);
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+.section h2{
+  font-size:38px;
+  letter-spacing:-1.5px;
+  margin:7px 0;
+}
+
+.section-head p{
+  max-width:500px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(16,34,54,.06);
+}
+
+.icon{font-size:35px}
+
+.card h3{margin:15px 0 8px}
+
+.card p{
+  color:var(--muted);
+  line-height:1.65;
+  margin:0;
+}
+
+.tag{
+  display:inline-block;
+  margin-top:16px;
+  padding:6px 9px;
+  border-radius:99px;
+  background:#eaf3f9;
+  color:#174668;
+  font-size:11px;
+  font-weight:800;
+}
+
+/* =========================
+   CULTURA
+========================= */
+
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.panel{
+  background:#071d35;
+  color:white;
+  border-radius:26px;
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+}
+
+.panel.red{background:#d72b3f}
+
+.panel h3{
+  font-size:27px;
+  margin:0 0 12px;
+}
+
+.panel p,
+.panel li{
+  color:#e0edf7;
+  line-height:1.65;
+}
+
+.panel ul{padding-left:20px}
+
+.panel .leaf{
+  position:absolute;
+  font-size:170px;
+  right:-20px;
+  bottom:-65px;
+  opacity:.1;
+}
+
+/* =========================
+   HISTORIA
+========================= */
+
+.timeline{display:grid;gap:12px}
+
+.event{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:20px;
+  align-items:start;
+  padding:18px;
+  border-left:3px solid #d72b3f;
+  background:white;
+  border-radius:0 16px 16px 0;
+}
+
+.event strong{color:#d72b3f}
+
+.event p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* =========================
+   ENLACES
+========================= */
+
+.links{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.linkcard{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.linkcard:hover{
+  transform:translateY(-3px);
+  border-color:#9fb7c7;
+}
+
+.linkcard strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+.linkcard span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz{
+  background:#e8f0f5;
+  border-radius:28px;
+  padding:30px;
+  text-align:center;
+}
+
+.quiz button{
+  border:0;
+  background:#071d35;
+  color:white;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:800;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:15px;
+  margin:4px 2px;
+}
+
+.answer{
+  min-height:25px;
+  margin-top:15px;
+  font-weight:700;
+  color:#174668;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#061827;
+  color:#c8d6e0;
+  padding:35px 28px;
+}
+
+.foot{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+
+.foot small{line-height:1.6}
+
+.maori{
+  font-size:15px;
+  font-weight:500;
+  color:white;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:800px){
+  .app{background:linear-gradient(180deg,#071d35 0 31%,#f4f7f8 31% 100%)}
+  .nav{padding:18px 20px}
+  .navlinks{display:none}
+  .hero{grid-template-columns:1fr;padding:35px 20px 75px;gap:30px}
+  .hero h1{font-size:clamp(48px,13vw,76px);letter-spacing:-3px}
+  .hero p{font-size:17px}
+  .hero-art{height:300px}
+  .grid,.cards,.links,.info{grid-template-columns:1fr 1fr}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .foot{display:block}
+  .foot>small{display:block;margin-top:18px}
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:540px){
+  .app{background:linear-gradient(180deg,#071d35 0 30%,#f4f7f8 30% 100%)}
+  .nav{padding:16px}
+  .brand{font-size:14px}
+  .fern{font-size:25px}
+  .hero{padding:28px 16px 65px;gap:25px}
+  .hero h1{font-size:clamp(42px,14vw,62px);line-height:.94;margin:12px 0 16px}
+  .hero p{font-size:16px;line-height:1.55}
+  .actions{margin-top:22px}
+  .btn{padding:11px 15px;font-size:14px}
+  .hero-art{height:235px;border-radius:22px}
+  .stars{right:25px;top:30px;font-size:23px}
+  .mountain{font-size:100px;left:25px;bottom:50px}
+  .badge{right:14px;bottom:14px;padding:9px 12px;font-size:12px}
+  .badge small{font-size:10px}
+  main{padding:0 16px 55px;margin-top:-30px}
+  .grid,.cards,.links,.info{grid-template-columns:1fr}
+  .grid{gap:10px}
+  .stat{padding:17px;border-radius:16px}
+  .stat b{font-size:21px}
+  .section{padding-top:55px}
+  .section h2{font-size:29px;line-height:1.1}
+  .section-head{margin-bottom:18px}
+  .card,.panel{padding:21px;border-radius:20px}
+  .panel h3{font-size:24px}
+  .event{grid-template-columns:1fr;gap:6px;padding:15px}
+  .quiz{padding:23px 16px;border-radius:22px}
+  .quiz h2{font-size:28px}
+  .quiz button{margin:4px 2px;padding:10px 13px}
+  .links{gap:10px}
+  footer{padding:28px 16px}
+  .maori{font-size:13px}
+}
+
+/* =========================
+   PANTALLAS MUY PEQUEÑAS
+========================= */
+
+@media(max-width:360px){
+  .hero h1{font-size:40px}
+  .btn{width:100%;justify-content:center}
+  .hero-art{height:210px}
+  .badge{max-width:calc(100% - 28px)}
+}
+
+/* =========================
+   MODO OSCURO
+========================= */
+
+@media(prefers-color-scheme:dark){
+  body{background:#071421;color:#edf5fb}
+  .app{background:linear-gradient(180deg,#061a30 0 35%,#071421 35% 100%)}
+  .card,.stat,.linkcard,.event{background:#0d2234;border-color:#244055}
+  .stat{background:#0d2234}
+  .card p,.section-head p,.event p,.linkcard span{color:#a9bbc9}
+  .quiz{background:#102b40}
+  .tag{background:#15364d;color:#c7e7fb}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+<nav class="nav">
+
+<div class="brand">
+<span class="fern">☘</span>
+<span data-i18n="brand">NUEVA ZELANDA</span>
+</div>
+
+<div class="navlinks">
+<a href="#about" data-i18n="nav_country">País</a>
+<a href="#culture" data-i18n="nav_culture">Cultura</a>
+<a href="#nature" data-i18n="nav_nature">Naturaleza</a>
+<a href="#links" data-i18n="nav_explore">Explorar</a>
+</div>
+
+<div class="lang-switch">
+<button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+<button id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<div class="eyebrow" data-i18n="eyebrow">
+Nueva Zelanda · Oceanía
+</div>
+
+<h1 data-i18n-html="hero_title">
+Descubre<br>
+<span>Nueva Zelanda.</span>
+</h1>
+
+<p data-i18n="hero_text">
+Un país del Pacífico Sur conocido por sus paisajes
+espectaculares, su herencia Māori, su biodiversidad
+y una identidad cultural única.
+</p>
+
+<div class="actions">
+
+<a class="btn primary" href="#about" data-i18n="btn_explore">
+Explorar datos ↓
+</a>
+
+<a
+class="btn red"
+target="_blank"
+rel="noopener"
+href="https://es.wikipedia.org/wiki/Nueva_Zelanda"
+data-i18n="btn_wiki">
+Wikipedia ↗
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-art">
+
+<div class="stars">
+✦ ✦
+</div>
+
+<div class="mountain">
+⛰
+</div>
+
+<div class="badge">
+<span data-i18n="badge_title">NUEVA ZELANDA</span>
+<small data-i18n="badge_sub">
+Pacífico Sur · Oceanía
+</small>
+</div>
+
+</div>
+
+</section>
+
+</header>
+
+<main>
+
+<!-- DATOS PRINCIPALES -->
+
+<section class="grid" id="about">
+
+<div class="stat">
+<b data-i18n="stat_capital">Wellington</b>
+<span data-i18n="stat_capital_label">Capital del país</span>
+</div>
+
+<div class="stat">
+<b data-i18n="stat_area">≈ 268.710 km²</b>
+<span data-i18n="stat_area_label">Superficie</span>
+</div>
+
+<div class="stat">
+<b data-i18n="stat_region">Pacífico Sur</b>
+<span data-i18n="stat_region_label">Región geográfica</span>
+</div>
+
+<div class="stat">
+<b data-i18n="stat_islands">2 islas principales</b>
+<span data-i18n="stat_islands_label">Norte y Sur</span>
+</div>
+
+</section>
+
+
+<!-- GEOGRAFÍA -->
+
+<section class="section">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker" data-i18n="geo_kicker">
+01 · El país
+</div>
+
+<h2 data-i18n="geo_title">
+Un territorio entre mar y montañas
+</h2>
+
+</div>
+
+<p data-i18n="geo_desc">
+Nueva Zelanda está formada principalmente por las
+islas Norte y Sur, además de numerosas islas menores.
+Su aislamiento geográfico contribuyó a una flora y fauna
+muy particulares.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<article class="card">
+
+<div class="icon">🏔️</div>
+
+<h3 data-i18n="geo_card1_title">
+Isla Sur
+</h3>
+
+<p data-i18n="geo_card1_desc">
+Destaca por los Alpes del Sur, glaciares, lagos y fiordos.
+Es una de las zonas más reconocidas por sus grandes
+paisajes naturales.
+</p>
+
+<span class="tag" data-i18n="geo_card1_tag">
+PAISAJES
+</span>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🌋</div>
+
+<h3 data-i18n="geo_card2_title">
+Isla Norte
+</h3>
+
+<p data-i18n="geo_card2_desc">
+Combina ciudades, playas y zonas de actividad volcánica
+y geotérmica. Auckland y Wellington se encuentran
+en esta isla.
+</p>
+
+<span class="tag" data-i18n="geo_card2_tag">
+GEOTERMIA
+</span>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🌊</div>
+
+<h3 data-i18n="geo_card3_title">
+Pacífico Sur
+</h3>
+
+<p data-i18n="geo_card3_desc">
+El país se encuentra al suroeste del océano Pacífico
+y está separado de Australia por el mar de Tasmania.
+</p>
+
+<span class="tag" data-i18n="geo_card3_tag">
+OCEANÍA
+</span>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- CULTURA -->
+
+<section class="section" id="culture">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker" data-i18n="cult_kicker">
+02 · Cultura
+</div>
+
+<h2 data-i18n="cult_title">
+Una identidad con raíces Māori
+</h2>
+
+</div>
+
+<p data-i18n="cult_desc">
+La cultura contemporánea de Nueva Zelanda reúne
+herencias Māori, europeas, del Pacífico y asiáticas.
+El te reo Māori ocupa un lugar importante en la
+identidad nacional.
+</p>
+
+</div>
+
+
+<div class="info">
+
+<article class="panel">
+
+<h3 data-i18n="cult_panel1_title">
+Te reo Māori
+</h3>
+
+<p data-i18n="cult_panel1_desc">
+Es la lengua indígena de los Māori. El nombre
+Aotearoa es una forma ampliamente utilizada para
+referirse a Nueva Zelanda en Māori.
+</p>
+
+<ul>
+<li data-i18n="cult_panel1_li1">Patrimonio y tradición oral</li>
+<li data-i18n="cult_panel1_li2">Arte, tallado y patrones simbólicos</li>
+<li data-i18n="cult_panel1_li3">Presencia en educación y vida pública</li>
+</ul>
+
+<div class="leaf">
+☘
+</div>
+
+</article>
+
+
+<article class="panel red">
+
+<h3 data-i18n="cult_panel2_title">
+El helecho plateado
+</h3>
+
+<p data-i18n="cult_panel2_desc">
+El silver fern se ha convertido en uno de los símbolos
+más reconocibles de Nueva Zelanda y aparece asociado
+con el deporte y la identidad nacional.
+</p>
+
+<ul>
+<li data-i18n="cult_panel2_li1">Relacionado con la flora nativa</li>
+<li data-i18n="cult_panel2_li2">Muy visible en el deporte neozelandés</li>
+<li data-i18n="cult_panel2_li3">Inspiración visual para esta página</li>
+</ul>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- NATURALEZA -->
+
+<section class="section" id="nature">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker" data-i18n="nat_kicker">
+03 · Naturaleza
+</div>
+
+<h2 data-i18n="nat_title">
+Fauna que no encontrarás en cualquier lugar
+</h2>
+
+</div>
+
+<p data-i18n="nat_desc">
+El aislamiento de las islas permitió la evolución de
+especies singulares, incluyendo aves que tienen un
+papel destacado en la identidad del país.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<article class="card">
+
+<div class="icon">
+🥝
+</div>
+
+<h3 data-i18n="nat_card1_title">
+Kiwi
+</h3>
+
+<p data-i18n="nat_card1_desc">
+Ave no voladora y uno de los símbolos más conocidos
+del país. El término "kiwi" también se usa
+informalmente para referirse a los neozelandeses.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">
+🦜
+</div>
+
+<h3 data-i18n="nat_card2_title">
+Kākāpō
+</h3>
+
+<p data-i18n="nat_card2_desc">
+Un loro nocturno y no volador, famoso por ser una
+especie muy particular de la fauna de Nueva Zelanda.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">
+🌿
+</div>
+
+<h3 data-i18n="nat_card3_title">
+Flora nativa
+</h3>
+
+<p data-i18n="nat_card3_desc">
+El país posee numerosas especies vegetales propias.
+El helecho y sus formas han tenido un papel importante
+en la identidad visual.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- HISTORIA -->
+
+<section class="section">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker" data-i18n="hist_kicker">
+04 · Historia
+</div>
+
+<h2 data-i18n="hist_title">
+Algunos momentos clave
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="timeline">
+
+<div class="event">
+
+<strong data-i18n="hist_event1_year">
+1250–1300
+</strong>
+
+<p data-i18n="hist_event1_desc">
+Se sitúa aproximadamente en este periodo la llegada
+de los primeros pobladores polinesios conocidos.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<strong data-i18n="hist_event2_year">
+1840
+</strong>
+
+<p data-i18n="hist_event2_desc">
+Se firma el Tratado de Waitangi, un documento central
+en la historia de las relaciones entre Māori y la
+Corona británica.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<strong data-i18n="hist_event3_year">
+1902
+</strong>
+
+<p data-i18n="hist_event3_desc">
+La bandera de Nueva Zelanda se adopta formalmente
+como bandera nacional.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<strong data-i18n="hist_event4_year">
+Actualidad
+</strong>
+
+<p data-i18n="hist_event4_desc">
+Nueva Zelanda combina instituciones modernas con una
+identidad cultural que continúa evolucionando.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ENLACES -->
+
+<section class="section" id="links">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker" data-i18n="links_kicker">
+05 · Explora
+</div>
+
+<h2 data-i18n="links_title">
+Enlaces y recursos
+</h2>
+
+</div>
+
+<p data-i18n="links_desc">
+Fuentes para ampliar la información sobre Nueva Zelanda
+y una referencia curiosa relacionada con el país.
+</p>
+
+</div>
+
+
+<div class="links">
+
+<a
+class="linkcard"
+target="_blank"
+rel="noopener"
+href="https://es.wikipedia.org/wiki/Nueva_Zelanda">
+
+<strong data-i18n="link1_title">
+📚 Wikipedia · Nueva Zelanda
+</strong>
+
+<span data-i18n="link1_desc">
+Información general, historia y geografía.
+</span>
+
+</a>
+
+
+<a
+class="linkcard"
+target="_blank"
+rel="noopener"
+href="https://www.newzealand.com/int/">
+
+<strong data-i18n="link2_title">
+🧭 Tourism New Zealand
+</strong>
+
+<span data-i18n="link2_desc">
+Guía oficial para conocer Nueva Zelanda
+y sus destinos.
+</span>
+
+</a>
+
+
+<a
+class="linkcard"
+target="_blank"
+rel="noopener"
+href="https://www.retrogames.cz/play_302-Genesis.php">
+
+<strong data-i18n="link3_title">
+🎮 The New Zealand Story
+</strong>
+
+<span data-i18n="link3_desc">
+Juego clásico de Taito para Sega Genesis/Mega Drive
+en RetroGames.
+</span>
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section class="section">
+
+<div class="quiz">
+
+<div class="kicker" data-i18n="quiz_kicker">
+Mini reto
+</div>
+
+<h2 data-i18n="quiz_title">
+¿Cuánto aprendiste?
+</h2>
+
+<p data-i18n="quiz_question">
+¿Cuál es la capital de Nueva Zelanda?
+</p>
+
+<button onclick="answer('Wellington')" data-i18n="quiz_opt1">
+Wellington
+</button>
+
+<button onclick="answer('Auckland')" data-i18n="quiz_opt2">
+Auckland
+</button>
+
+<button onclick="answer('Christchurch')" data-i18n="quiz_opt3">
+Christchurch
+</button>
+
+<div
+class="answer"
+id="answer">
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="foot">
+
+<div>
+
+<div class="maori">
+  EDWIN MOLINA, 
+  DANIEL MUÑOZ, 
+  STYCK RODRIGUEZ, 
+  JUAN SANTAMARIA.
+</div>
+
+<br>
+
+<small data-i18n="footer_copy">
+© 2026 Grupo EDSJ. Todos los derechos reservados.
+</small>
+
+</div>
+
+<small data-i18n="footer_sources">
+Fuentes principales: Wikipedia, Tourism New Zealand
+y New Zealand Ministry for Culture & Heritage.
+</small>
+
+</div>
+
+</footer>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   SISTEMA DE INTERNACIONALIZACIÓN (i18n)
+   Traduce todo el contenido de la página ES <-> EN
+========================================================= */
+
+const translations = {
+  es: {
+    brand: "NUEVA ZELANDA",
+    nav_country: "País",
+    nav_culture: "Cultura",
+    nav_nature: "Naturaleza",
+    nav_explore: "Explorar",
+
+    eyebrow: "Nueva Zelanda · Oceanía",
+    hero_title: 'Descubre<br><span>Nueva Zelanda.</span>',
+    hero_text: "Un país del Pacífico Sur conocido por sus paisajes espectaculares, su herencia Māori, su biodiversidad y una identidad cultural única.",
+    btn_explore: "Explorar datos ↓",
+    btn_wiki: "Wikipedia ↗",
+    badge_title: "NUEVA ZELANDA",
+    badge_sub: "Pacífico Sur · Oceanía",
+
+    stat_capital: "Wellington",
+    stat_capital_label: "Capital del país",
+    stat_area: "≈ 268.710 km²",
+    stat_area_label: "Superficie",
+    stat_region: "Pacífico Sur",
+    stat_region_label: "Región geográfica",
+    stat_islands: "2 islas principales",
+    stat_islands_label: "Norte y Sur",
+
+    geo_kicker: "01 · El país",
+    geo_title: "Un territorio entre mar y montañas",
+    geo_desc: "Nueva Zelanda está formada principalmente por las islas Norte y Sur, además de numerosas islas menores. Su aislamiento geográfico contribuyó a una flora y fauna muy particulares.",
+    geo_card1_title: "Isla Sur",
+    geo_card1_desc: "Destaca por los Alpes del Sur, glaciares, lagos y fiordos. Es una de las zonas más reconocidas por sus grandes paisajes naturales.",
+    geo_card1_tag: "PAISAJES",
+    geo_card2_title: "Isla Norte",
+    geo_card2_desc: "Combina ciudades, playas y zonas de actividad volcánica y geotérmica. Auckland y Wellington se encuentran en esta isla.",
+    geo_card2_tag: "GEOTERMIA",
+    geo_card3_title: "Pacífico Sur",
+    geo_card3_desc: "El país se encuentra al suroeste del océano Pacífico y está separado de Australia por el mar de Tasmania.",
+    geo_card3_tag: "OCEANÍA",
+
+    cult_kicker: "02 · Cultura",
+    cult_title: "Una identidad con raíces Māori",
+    cult_desc: "La cultura contemporánea de Nueva Zelanda reúne herencias Māori, europeas, del Pacífico y asiáticas. El te reo Māori ocupa un lugar importante en la identidad nacional.",
+    cult_panel1_title: "Te reo Māori",
+    cult_panel1_desc: "Es la lengua indígena de los Māori. El nombre Aotearoa es una forma ampliamente utilizada para referirse a Nueva Zelanda en Māori.",
+    cult_panel1_li1: "Patrimonio y tradición oral",
+    cult_panel1_li2: "Arte, tallado y patrones simbólicos",
+    cult_panel1_li3: "Presencia en educación y vida pública",
+    cult_panel2_title: "El helecho plateado",
+    cult_panel2_desc: "El silver fern se ha convertido en uno de los símbolos más reconocibles de Nueva Zelanda y aparece asociado con el deporte y la identidad nacional.",
+    cult_panel2_li1: "Relacionado con la flora nativa",
+    cult_panel2_li2: "Muy visible en el deporte neozelandés",
+    cult_panel2_li3: "Inspiración visual para esta página",
+
+    nat_kicker: "03 · Naturaleza",
+    nat_title: "Fauna que no encontrarás en cualquier lugar",
+    nat_desc: "El aislamiento de las islas permitió la evolución de especies singulares, incluyendo aves que tienen un papel destacado en la identidad del país.",
+    nat_card1_title: "Kiwi",
+    nat_card1_desc: 'Ave no voladora y uno de los símbolos más conocidos del país. El término "kiwi" también se usa informalmente para referirse a los neozelandeses.',
+    nat_card2_title: "Kākāpō",
+    nat_card2_desc: "Un loro nocturno y no volador, famoso por ser una especie muy particular de la fauna de Nueva Zelanda.",
+    nat_card3_title: "Flora nativa",
+    nat_card3_desc: "El país posee numerosas especies vegetales propias. El helecho y sus formas han tenido un papel importante en la identidad visual.",
+
+    hist_kicker: "04 · Historia",
+    hist_title: "Algunos momentos clave",
+    hist_event1_year: "1250–1300",
+    hist_event1_desc: "Se sitúa aproximadamente en este periodo la llegada de los primeros pobladores polinesios conocidos.",
+    hist_event2_year: "1840",
+    hist_event2_desc: "Se firma el Tratado de Waitangi, un documento central en la historia de las relaciones entre Māori y la Corona británica.",
+    hist_event3_year: "1902",
+    hist_event3_desc: "La bandera de Nueva Zelanda se adopta formalmente como bandera nacional.",
+    hist_event4_year: "Actualidad",
+    hist_event4_desc: "Nueva Zelanda combina instituciones modernas con una identidad cultural que continúa evolucionando.",
+
+    links_kicker: "05 · Explora",
+    links_title: "Enlaces y recursos",
+    links_desc: "Fuentes para ampliar la información sobre Nueva Zelanda y una referencia curiosa relacionada con el país.",
+    link1_title: "📚 Wikipedia · Nueva Zelanda",
+    link1_desc: "Información general, historia y geografía.",
+    link2_title: "🧭 Tourism New Zealand",
+    link2_desc: "Guía oficial para conocer Nueva Zelanda y sus destinos.",
+    link3_title: "🎮 The New Zealand Story",
+    link3_desc: "Juego clásico de Taito para Sega Genesis/Mega Drive en RetroGames.",
+
+    quiz_kicker: "Mini reto",
+    quiz_title: "¿Cuánto aprendiste?",
+    quiz_question: "¿Cuál es la capital de Nueva Zelanda?",
+    quiz_opt1: "Wellington",
+    quiz_opt2: "Auckland",
+    quiz_opt3: "Christchurch",
+    quiz_correct: "✓ Correcto. Wellington es la capital de Nueva Zelanda.",
+    quiz_wrong: "✗ No exactamente. La capital es Wellington.",
+
+    footer_copy: "© 2026 Grupo EDSJ. Todos los derechos reservados.",
+    footer_sources: "Fuentes principales: Wikipedia, Tourism New Zealand y New Zealand Ministry for Culture & Heritage."
+  },
+
+  en: {
+    brand: "NEW ZEALAND",
+    nav_country: "Country",
+    nav_culture: "Culture",
+    nav_nature: "Nature",
+    nav_explore: "Explore",
+
+    eyebrow: "New Zealand · Oceania",
+    hero_title: 'Discover<br><span>New Zealand.</span>',
+    hero_text: "A South Pacific country known for its spectacular landscapes, its Māori heritage, its biodiversity and a unique cultural identity.",
+    btn_explore: "Explore data ↓",
+    btn_wiki: "Wikipedia ↗",
+    badge_title: "NEW ZEALAND",
+    badge_sub: "South Pacific · Oceania",
+
+    stat_capital: "Wellington",
+    stat_capital_label: "Capital city",
+    stat_area: "≈ 268,710 km²",
+    stat_area_label: "Area",
+    stat_region: "South Pacific",
+    stat_region_label: "Geographic region",
+    stat_islands: "2 main islands",
+    stat_islands_label: "North and South",
+
+    geo_kicker: "01 · The country",
+    geo_title: "A territory between sea and mountains",
+    geo_desc: "New Zealand is mainly made up of the North and South Islands, plus numerous smaller islands. Its geographic isolation contributed to very particular flora and fauna.",
+    geo_card1_title: "South Island",
+    geo_card1_desc: "It stands out for the Southern Alps, glaciers, lakes and fjords. It is one of the most recognized areas for its great natural landscapes.",
+    geo_card1_tag: "LANDSCAPES",
+    geo_card2_title: "North Island",
+    geo_card2_desc: "It combines cities, beaches and areas of volcanic and geothermal activity. Auckland and Wellington are located on this island.",
+    geo_card2_tag: "GEOTHERMAL",
+    geo_card3_title: "South Pacific",
+    geo_card3_desc: "The country is located in the southwest of the Pacific Ocean and is separated from Australia by the Tasman Sea.",
+    geo_card3_tag: "OCEANIA",
+
+    cult_kicker: "02 · Culture",
+    cult_title: "An identity with Māori roots",
+    cult_desc: "Contemporary New Zealand culture brings together Māori, European, Pacific and Asian heritages. Te reo Māori holds an important place in national identity.",
+    cult_panel1_title: "Te reo Māori",
+    cult_panel1_desc: "It is the indigenous language of the Māori. The name Aotearoa is a widely used way to refer to New Zealand in Māori.",
+    cult_panel1_li1: "Heritage and oral tradition",
+    cult_panel1_li2: "Art, carving and symbolic patterns",
+    cult_panel1_li3: "Presence in education and public life",
+    cult_panel2_title: "The silver fern",
+    cult_panel2_desc: "The silver fern has become one of the most recognizable symbols of New Zealand and is associated with sport and national identity.",
+    cult_panel2_li1: "Related to native flora",
+    cult_panel2_li2: "Very visible in New Zealand sports",
+    cult_panel2_li3: "Visual inspiration for this page",
+
+    nat_kicker: "03 · Nature",
+    nat_title: "Wildlife you won't find just anywhere",
+    nat_desc: "The isolation of the islands allowed the evolution of unique species, including birds that play a prominent role in the country's identity.",
+    nat_card1_title: "Kiwi",
+    nat_card1_desc: 'A flightless bird and one of the country\'s best-known symbols. The term "kiwi" is also used informally to refer to New Zealanders.',
+    nat_card2_title: "Kākāpō",
+    nat_card2_desc: "A nocturnal, flightless parrot, famous for being a very particular species of New Zealand's wildlife.",
+    nat_card3_title: "Native flora",
+    nat_card3_desc: "The country has numerous plant species of its own. The fern and its forms have played an important role in its visual identity.",
+
+    hist_kicker: "04 · History",
+    hist_title: "Some key moments",
+    hist_event1_year: "1250–1300",
+    hist_event1_desc: "The arrival of the first known Polynesian settlers is placed approximately in this period.",
+    hist_event2_year: "1840",
+    hist_event2_desc: "The Treaty of Waitangi is signed, a central document in the history of relations between Māori and the British Crown.",
+    hist_event3_year: "1902",
+    hist_event3_desc: "The New Zealand flag is formally adopted as the national flag.",
+    hist_event4_year: "Present day",
+    hist_event4_desc: "New Zealand combines modern institutions with a cultural identity that continues to evolve.",
+
+    links_kicker: "05 · Explore",
+    links_title: "Links and resources",
+    links_desc: "Sources to expand information about New Zealand and a curious reference related to the country.",
+    link1_title: "📚 Wikipedia · New Zealand",
+    link1_desc: "General information, history and geography.",
+    link2_title: "🧭 Tourism New Zealand",
+    link2_desc: "Official guide to discover New Zealand and its destinations.",
+    link3_title: "🎮 The New Zealand Story",
+    link3_desc: "Classic Taito game for Sega Genesis/Mega Drive on RetroGames.",
+
+    quiz_kicker: "Mini challenge",
+    quiz_title: "How much did you learn?",
+    quiz_question: "What is the capital of New Zealand?",
+    quiz_opt1: "Wellington",
+    quiz_opt2: "Auckland",
+    quiz_opt3: "Christchurch",
+    quiz_correct: "✓ Correct. Wellington is the capital of New Zealand.",
+    quiz_wrong: "✗ Not quite. The capital is Wellington.",
+
+    footer_copy: "© 2026 EDSJ Group. All rights reserved.",
+    footer_sources: "Main sources: Wikipedia, Tourism New Zealand and New Zealand Ministry for Culture & Heritage."
+  }
+};
+
+let currentLang = "es";
+
+function setLang(lang) {
+  currentLang = lang;
+
+  // Actualizar atributo lang del documento
+  document.documentElement.lang = lang;
+
+  // Actualizar botones activos
+  document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+  // Traducir todos los elementos con data-i18n
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang][key] !== undefined) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // Traducir elementos con HTML interno (data-i18n-html)
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const key = el.getAttribute("data-i18n-html");
+    if (translations[lang][key] !== undefined) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  // Guardar preferencia
+  try { localStorage.setItem("nz-lang", lang); } catch(e) {}
+
+  // Limpiar respuesta del quiz al cambiar idioma
+  document.getElementById("answer").textContent = "";
+}
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+function answer(v) {
+  const answerEl = document.getElementById("answer");
+  const correctText = translations[currentLang].quiz_correct;
+  const wrongText = translations[currentLang].quiz_wrong;
+
+  answerEl.textContent = (v === "Wellington") ? correctText : wrongText;
+}
+
+/* =========================================================
+   INICIALIZACIÓN
+========================================================= */
+
+// Cargar idioma guardado o detectar del navegador
+(function initLang() {
+  let saved = null;
+  try { saved = localStorage.getItem("nz-lang"); } catch(e) {}
+
+  if (saved === "es" || saved === "en") {
+    setLang(saved);
+  } else {
+    // Detectar idioma del navegador
+    const browserLang = (navigator.language || "es").toLowerCase();
+    setLang(browserLang.startsWith("en") ? "en" : "es");
+  }
+})();
+
+</script>
+
+</body>
+</html>
